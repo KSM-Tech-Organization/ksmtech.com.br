@@ -15,7 +15,9 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "next start",
+    "dev": "next dev",
+    "build": "next build"
   },
   "dependencies": {
     "next": "^15.5.6",
