@@ -24,18 +24,18 @@ export default function Home() {
             >
                 <div style={{ marginBottom: "40px" }}>
                     <img
-                        src="/ksmtech-logo.png"
+                        src="/LOGO_2.webp"
                         alt="KSM Tech Logo"
                         style={{
                             width: "180px",
                             height: "auto",
-                            filter: "drop-shadow(0 0 10px #00ff66)",
+                            // filter: "drop-shadow(0 0 10px #00ff66)",
                         }}
                     />
                 </div>
 
                 <h1 style={{ fontSize: "2.5rem", color: "#00ff66" }}>
-                    KSM Tech
+                    KSM TECH
                 </h1>
 
                 <p style={{ color: "#ccc", fontSize: "1.2rem" }}>
