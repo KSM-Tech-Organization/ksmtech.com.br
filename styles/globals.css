@@ -10,7 +10,9 @@ body {
 
 /* Logo hover effect: scale and green drop-shadow */
 .logo {
-    transition: transform 160ms ease, filter 160ms ease;
+    transition:
+        transform 160ms ease,
+        filter 160ms ease;
     will-change: transform, filter;
 }
 

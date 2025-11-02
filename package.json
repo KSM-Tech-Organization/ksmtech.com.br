@@ -1,28 +1,33 @@
 {
-  "name": "ksmtech.com.br",
-  "version": "1.0.0",
-  "description": "Website institucional da KSM Tech",
-  "homepage": "https://github.com/KSM-Tech-Organization/ksmtech.com.br#readme",
-  "bugs": {
-    "url": "https://github.com/KSM-Tech-Organization/ksmtech.com.br/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/KSM-Tech-Organization/ksmtech.com.br.git"
-  },
-  "license": "ISC",
-  "author": "Kenny de Souza Vargas, Mauricio de Souza Leal Filho",
-  "type": "commonjs",
-  "main": "index.js",
-  "scripts": {
-    "start": "next start",
-    "dev": "next dev",
-    "build": "next build"
-  },
-  "dependencies": {
-    "@next/third-parties": "^16.0.1",
-    "next": "^15.5.6",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
-  }
+    "name": "ksmtech.com.br",
+    "version": "1.0.0",
+    "description": "Website institucional da KSM Tech",
+    "homepage": "https://github.com/KSM-Tech-Organization/ksmtech.com.br#readme",
+    "bugs": {
+        "url": "https://github.com/KSM-Tech-Organization/ksmtech.com.br/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KSM-Tech-Organization/ksmtech.com.br.git"
+    },
+    "license": "ISC",
+    "author": "Kenny de Souza Vargas, Mauricio de Souza Leal Filho",
+    "type": "commonjs",
+    "main": "index.js",
+    "scripts": {
+        "start": "next start",
+        "dev": "next dev",
+        "build": "next build",
+        "lint:check": "prettier --check .",
+        "lint:fix": "prettier --write ."
+    },
+    "dependencies": {
+        "@next/third-parties": "^16.0.1",
+        "next": "^15.5.6",
+        "react": "^19.2.0",
+        "react-dom": "^19.2.0"
+    },
+    "devDependencies": {
+        "prettier": "^3.6.2"
+    }
 }
