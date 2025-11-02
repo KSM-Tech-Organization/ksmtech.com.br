@@ -7,3 +7,14 @@ body {
     color: #fff;
     font-family: Arial, sans-serif;
 }
+
+/* Logo hover effect: scale and green drop-shadow */
+.logo {
+    transition: transform 160ms ease, filter 160ms ease;
+    will-change: transform, filter;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 10px #00ff66);
+}
