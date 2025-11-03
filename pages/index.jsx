@@ -14,7 +14,7 @@ export default function Home() {
         <>
             <div
                 style={{
-                    backgroundImage: "url('/background.png')",
+                    backgroundImage: "url('/TECH_DOOR_GREEN.webp')",
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
