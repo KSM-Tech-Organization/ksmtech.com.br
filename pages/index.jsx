@@ -11,7 +11,7 @@ export default function Home() {
             <div className="hero__card">
                 <img src="/LOGO_2.webp" alt="KSM Tech Logo" className="logo" />
                 <h1 className="hero__title">
-                    Tecnologia simples, segura e sob medida
+                    Soluções em tecnologias. A internet das Coisas
                 </h1>
                 <p className="hero__subtitle">
                     Consultoria completa — da configuração à integração

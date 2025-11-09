@@ -2,6 +2,11 @@ import Head from "next/head";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+
+import "../styles/tokens.css";
+import "../styles/base.css";
+import "../styles/components.css";
+
 import "../styles/globals.css";
 import "../styles/navbar.css";
 import "../styles/home.css";

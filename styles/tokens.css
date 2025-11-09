@@ -1,0 +1,31 @@
+:root {
+    /* cores */
+    --bg: #000;
+    --fg: #fff;
+    --fg-muted: #cfcfcf;
+    --fg-soft: #aaa;
+    --accent: #00ff66;
+    --shadow: #000000;
+    /* superfícies */
+    --card: rgba(0, 0, 0, 0.45);
+    --border: rgba(255, 255, 255, 0.08);
+
+    /* raio, espaçamento, animação */
+    --r-lg: 32px;
+    --r-md: 16px;
+    --space-1: 8px;
+    --space-2: 12px;
+    --space-3: 16px;
+    --space-4: 24px;
+    --space-5: 32px;
+    --blur-1: 6px;
+    --ease-1: 120ms ease;
+    --ease-2: 360ms ease-out;
+}
+
+/* dark base */
+html,
+body {
+    background: var(--bg);
+    color: var(--fg);
+}

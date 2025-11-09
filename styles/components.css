@@ -1,0 +1,82 @@
+/* cartões, grid, alerts e botões padronizados (substitui page.css/contact.css duplicados) */
+
+.grid {
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    padding: var(--space-3);
+    backdrop-filter: blur(var(--blur-1));
+    -webkit-backdrop-filter: blur(var(--blur-1));
+    opacity: 0;
+    transform: translateY(12px);
+}
+.card[data-animate] {
+    animation: fade-up 420ms var(--ease-2) forwards;
+}
+
+.card__title {
+    margin: 0 0 6px 0;
+    font-size: 1.1rem;
+}
+.card__p {
+    margin: 0;
+    color: var(--fg-muted);
+    line-height: 1.55;
+    font-size: 0.98rem;
+}
+.card__list {
+    margin: 8px 0 10px 18px;
+    color: var(--fg-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.btn {
+    background: var(--accent);
+    color: #001a0b;
+    border: 0;
+    border-radius: 999px;
+    padding: 12px 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        transform var(--ease-1),
+        filter var(--ease-1);
+}
+.btn:hover {
+    transform: translateY(-1px);
+}
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.alert {
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+}
+.alert--ok {
+    background: rgba(0, 255, 102, 0.12);
+    border: 1px solid rgba(0, 255, 102, 0.35);
+}
+.alert--error {
+    background: rgba(255, 0, 0, 0.12);
+    border: 1px solid rgba(255, 0, 0, 0.35);
+}
