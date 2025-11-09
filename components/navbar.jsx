@@ -49,9 +49,6 @@ export default function Navbar() {
                         <a href="/">Início</a>
                     </li>
                     <li>
-                        <a href="/products">Produtos</a>
-                    </li>
-                    <li>
                         <a href="/works">Serviços</a>
                     </li>
                     <li>

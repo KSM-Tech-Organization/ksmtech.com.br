@@ -16,6 +16,7 @@
     background-position: center;
     color: var(--fg);
     font-family: Orbitron, Arial, sans-serif;
+    text-shadow: 0 0 3px green;
     display: grid;
     grid-template-rows: auto 1fr auto;
     text-align: center;

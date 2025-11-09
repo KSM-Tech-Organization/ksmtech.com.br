@@ -13,6 +13,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    font-family: Orbitron, Arial, sans-serif;
+    text-shadow: 0 0 3px green;
     color: var(--fg);
     display: grid;
     grid-template-rows: auto 1fr auto;
@@ -81,6 +83,13 @@
     border-radius: 999px;
     padding: 8px 12px;
     font-weight: 700;
+}
+
+.card__list {
+    margin: 8px 0 10px 18px;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
 @keyframes fade {

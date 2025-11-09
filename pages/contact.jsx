@@ -1,7 +1,21 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { useRouter } from "next/router";
+import services from "../data/services.json";
 import Navbar from "../components/navbar";
 
 export default function Contato() {
+    const router = useRouter();
+    const { service, subject, message } = router.query || {};
+
+    const defaults = useMemo(() => {
+        const s = services.find((x) => x.slug === service);
+        return {
+            service: s?.slug || "geral",
+            subject: subject || s?.subject || "",
+            message: message || s?.message || "",
+        };
+    }, [service, subject, message]);
+
     const [status, setStatus] = useState("idle"); // idle | sending | success | error
     const [errorMsg, setErrorMsg] = useState("");
 
@@ -11,7 +25,7 @@ export default function Contato() {
         const form = e.currentTarget;
         const data = new FormData(form);
 
-        // honeypot (campo escondido): se preenchido, aborta
+        // honeypot
         if (data.get("website")) return;
 
         const payload = {
@@ -23,7 +37,6 @@ export default function Contato() {
             message: data.get("message")?.toString().trim(),
         };
 
-        // validações simples
         if (!payload.name || !payload.email || !payload.message) {
             setErrorMsg("Preencha nome, e-mail e mensagem");
             return;
@@ -60,12 +73,14 @@ export default function Contato() {
                     Fale com a KSM Tech — respondemos rápido
                 </p>
 
+                {/* chaveia o form quando os defaults mudam → pré-preenche certinho */}
                 <form
+                    key={`${defaults.service}|${defaults.subject}|${defaults.message}`}
                     className="contact__form"
                     onSubmit={handleSubmit}
                     noValidate
                 >
-                    {/* honeypot escondido */}
+                    {/* honeypot */}
                     <input
                         type="text"
                         name="website"
@@ -112,7 +127,7 @@ export default function Contato() {
                             <select
                                 id="service"
                                 name="service"
-                                defaultValue="geral"
+                                defaultValue={defaults.service}
                             >
                                 <option value="geral">Consultoria geral</option>
                                 <option value="computadores">
@@ -139,6 +154,7 @@ export default function Contato() {
                             name="subject"
                             type="text"
                             placeholder="Como podemos ajudar?"
+                            defaultValue={defaults.subject}
                         />
                     </div>
 
@@ -150,6 +166,7 @@ export default function Contato() {
                             rows={5}
                             placeholder="Descreva sua necessidade"
                             required
+                            defaultValue={defaults.message}
                         />
                     </div>
 

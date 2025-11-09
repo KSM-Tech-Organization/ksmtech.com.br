@@ -1,48 +1,54 @@
-import { useState, useEffect } from "react";
+// pages/index.jsx
 import Navbar from "../components/navbar";
+import services from "../data/services.json";
 
 export default function Home() {
-    const [dots, setDots] = useState("");
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setDots((prev) => (prev.length < 3 ? prev + "." : ""));
-        }, 500);
-        return () => clearInterval(interval);
-    }, []);
+    const featured = services.slice(0, 4);
 
     return (
-        <>
-            <div className="hero">
-                <Navbar />
-                <div className="hero__card">
-                    <div className="hero__logoWrap">
-                        <img
-                            src="/LOGO_2.webp"
-                            alt="KSM Tech Logo"
-                            className="logo"
-                        />
-                    </div>
-
-                    <h1 className="hero__title">KSM TECH</h1>
-
-                    <p className="hero__subtitle">
-                        Your gateway to tech solutions.
-                    </p>
-
-                    <hr className="hero__divider" />
-
-                    <h2 className="hero__status">In construction{dots}</h2>
-
-                    <a className="hero__link" href="/about">
-                        Sobre Nós
-                    </a>
-                </div>
-
-                <footer className="hero__footer">
-                    © 2025 KSM Tech. All rights reserved.
-                </footer>
+        <div className="hero">
+            <Navbar />
+            <div className="hero__card">
+                <img src="/LOGO_2.webp" alt="KSM Tech Logo" className="logo" />
+                <h1 className="hero__title">
+                    Tecnologia simples, segura e sob medida
+                </h1>
+                <p className="hero__subtitle">
+                    Consultoria completa — da configuração à integração
+                </p>
+                <hr className="hero__divider" />
             </div>
-        </>
+
+            <section className="grid">
+                {featured.map((s) => {
+                    const q = new URLSearchParams({
+                        origin: "home",
+                        service: s.slug,
+                        subject: s.subject,
+                        message: s.message,
+                    }).toString();
+                    return (
+                        <article key={s.slug} className="card">
+                            <h3 className="card__title">{s.title}</h3>
+                            <p className="card__p">{s.blurb}</p>
+                            {s.features?.length ? (
+                                <ul className="card__list">
+                                    {s.features.map((f) => (
+                                        <li key={f}>{f}</li>
+                                    ))}
+                                </ul>
+                            ) : null}
+                            <a className="card__cta" href={`/contact?${q}`}>
+                                {s.cta}
+                            </a>
+                        </article>
+                    );
+                })}
+            </section>
+
+            <footer className="hero__footer">
+                © 2025 KSM Tech. All rights reserved.
+            </footer>
+        </div>
     );
 }

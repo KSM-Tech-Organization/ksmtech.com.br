@@ -1,0 +1,64 @@
+[
+    {
+        "slug": "computadores",
+        "title": "Formatação e Montagem de PCs/Notebooks",
+        "blurb": "Instalação limpa, drivers, backup e upgrades sob medida",
+        "features": [
+            "Windows/Linux otimizado",
+            "SSD/RAM/limpeza térmica",
+            "Backup e antivírus"
+        ],
+        "cta": "Quero otimizar meu PC",
+        "subject": "Formatação/Montagem de computador",
+        "message": "Olá, preciso de ajuda com meu computador (formatação/montagem/upgrade)."
+    },
+    {
+        "slug": "seguranca",
+        "title": "Câmeras e Segurança",
+        "blurb": "Projeto, instalação e acesso remoto com gravação confiável",
+        "features": ["CFTV/IP", "DVR/NVR", "Acesso remoto e alertas"],
+        "cta": "Quero proteger meu espaço",
+        "subject": "Instalação de câmeras e segurança",
+        "message": "Olá, quero instalar câmeras com acesso remoto e gravação."
+    },
+    {
+        "slug": "automacao",
+        "title": "Fechaduras e Sensores",
+        "blurb": "Automação de acesso integrada a câmeras e notificações",
+        "features": [
+            "Fechaduras eletrônicas",
+            "Sensores de movimento/porta",
+            "Logs e integrações"
+        ],
+        "cta": "Quero automatizar acessos",
+        "subject": "Integração de fechaduras e sensores",
+        "message": "Olá, preciso integrar fechaduras e sensores ao meu ambiente."
+    },
+    {
+        "slug": "redes",
+        "title": "Redes & Wi-Fi",
+        "blurb": "Sinal estável, segurança e cobertura onde você precisa",
+        "features": ["Mapa de sinal", "Ajuste de canais", "Segurança WPA3"],
+        "cta": "Quero meu Wi-Fi estável",
+        "subject": "Otimização de rede e Wi-Fi",
+        "message": "Olá, gostaria de otimizar minha rede/wi-fi."
+    },
+    {
+        "slug": "sites",
+        "title": "Sites Institucionais",
+        "blurb": "Site rápido, seguro e pronto para crescer",
+        "features": ["Desempenho", "SEO básico", "Hospedagem configurada"],
+        "cta": "Quero meu site no ar",
+        "subject": "Criação de site institucional",
+        "message": "Olá, quero criar um site institucional para minha empresa."
+    },
+    {
+        "slug": "sistemas",
+        "title": "Sistemas (CRM/ERP)",
+        "blurb": "Comece simples e evolua por etapas",
+        "features": ["Diagnóstico do fluxo", "MVP sob medida", "Integrações"],
+        "cta": "Quero avaliar um CRM/ERP",
+        "subject": "Projeto de CRM/ERP",
+        "message": "Olá, quero avaliar um CRM/ERP para meu negócio."
+    }
+]

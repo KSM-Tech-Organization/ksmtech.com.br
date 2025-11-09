@@ -12,6 +12,7 @@
     background-position: center;
     color: var(--fg);
     font-family: Orbitron, Arial, sans-serif;
+    text-shadow: 0 0 6px lime;
     text-align: center;
     min-height: 100vh;
     position: relative;
