@@ -1,21 +1,22 @@
-/* globals.css */
+/* use a variável certa e NÃO sobrescreva depois */
 html,
 body {
     margin: 0;
     padding: 0;
     background-color: #000;
     color: #fff;
-    font-family: Arial, sans-serif;
+    font-family: var(--font-orbitron), Arial, sans-serif;
 }
 
-/* Logo hover effect: scale and green drop-shadow */
+/* se quiser só nos títulos: */
+/* h1, h2, h3 { font-family: var(--font-orbitron), sans-serif } */
+
 .logo {
     transition:
         transform 160ms ease,
         filter 160ms ease;
     will-change: transform, filter;
 }
-
 .logo:hover {
     transform: scale(1.05);
     filter: drop-shadow(0 0 10px #00ff66);

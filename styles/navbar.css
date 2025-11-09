@@ -1,0 +1,125 @@
+:root {
+    --bg: #000;
+    --fg: #fff;
+    --muted: #0a0a0a;
+    --accent: #00ff66;
+}
+
+/* container */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    padding: 0 12px;
+    background: var(--bg);
+    color: var(--fg);
+    border-bottom: 1px solid #111;
+}
+
+/* brand */
+.navbar__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+.navbar__logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+/* hamburger */
+.navbar__toggle {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+    background: transparent;
+    border: 0;
+}
+.navbar__toggle:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+.navbar__bar {
+    width: 22px;
+    height: 2px;
+    background: var(--fg);
+    display: block;
+}
+
+/* drawer (mobile) */
+.navbar__drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 78vw;
+    max-width: 320px;
+    height: 100vh;
+    background: var(--bg);
+    border-left: 1px solid #111;
+    transform: translateX(100%);
+    transition: transform 200ms ease-in-out;
+    padding: 72px 20px 20px 20px;
+}
+.navbar__drawer.is-open {
+    transform: translateX(0);
+}
+
+.navbar__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.navbar__list a {
+    color: var(--fg);
+    text-decoration: none;
+    font-size: 16px;
+}
+.navbar__list a:hover {
+    color: var(--accent);
+}
+
+/* backdrop when drawer open */
+.navbar__backdrop {
+    z-index: -1;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+}
+
+/* desktop layout */
+@media (min-width: 768px) {
+    .navbar {
+        height: 64px;
+        padding: 0 16px;
+    }
+    .navbar__toggle {
+        display: none;
+    }
+    .navbar__drawer {
+        position: static;
+        transform: none;
+        height: auto;
+        width: auto;
+        max-width: none;
+        border-left: 0;
+        padding: 0;
+    }
+    .navbar__list {
+        flex-direction: row;
+        gap: 20px;
+    }
+    .navbar__backdrop {
+        display: none;
+    }
+}

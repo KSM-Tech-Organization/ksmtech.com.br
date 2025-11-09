@@ -1,0 +1,169 @@
+:root {
+    --fg: #ffffff;
+    --fg-muted: #cfcfcf;
+    --bg: #000000;
+    --accent: #00ff66;
+    --card-bg: rgba(0, 0, 0, 0.45);
+    --border: rgba(255, 255, 255, 0.08);
+}
+
+/* ====== LAYOUT GERAL (MOBILE FIRST) ====== */
+.about {
+    min-height: 100vh;
+    background-image: url("/TECH_DOOR.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: var(--fg);
+    font-family: Orbitron, Arial, sans-serif;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    text-align: center;
+}
+
+/* card central */
+.about__card {
+    width: min(92%, 720px);
+    margin: 24px auto 16px auto;
+    padding: 20px 16px;
+    border-radius: 28px;
+    background: var(--card-bg);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid var(--border);
+
+    /* animação de entrada */
+    opacity: 0;
+    transform: translateY(14px);
+    animation: about-fade-up 420ms ease-out forwards;
+    animation-delay: 120ms;
+}
+
+/* títulos e textos */
+.about__title {
+    font-size: 1.9rem;
+    line-height: 1.2;
+    margin: 8px 0 6px 0;
+    letter-spacing: 0.5px;
+    color: var(--accent);
+    opacity: 0;
+    animation: about-fade 360ms ease-out forwards;
+}
+
+.about__divider {
+    width: 64%;
+    margin: 14px auto 18px auto;
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0;
+    animation: about-fade 360ms ease-out forwards;
+    animation-delay: 120ms;
+}
+
+.about__block {
+    margin: 16px 0 10px 0;
+}
+
+/* animação escalonada em seções */
+.about__block:nth-child(3) {
+    animation-delay: 160ms;
+}
+.about__block:nth-child(4) {
+    animation-delay: 220ms;
+}
+.about__block:nth-child(5) {
+    animation-delay: 280ms;
+}
+
+.about__h2 {
+    font-size: 1.25rem;
+    margin: 0 0 6px 0;
+    color: var(--fg);
+    opacity: 0;
+    transform: translateY(6px);
+    animation: about-fade-up 380ms ease-out forwards;
+}
+
+.about__p {
+    margin: 0 auto;
+    color: var(--fg-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+    width: min(92%, 58ch);
+    opacity: 0;
+    transform: translateY(6px);
+    animation: about-fade-up 420ms ease-out forwards;
+    animation-delay: 60ms;
+}
+
+/* rodapé */
+.about__footer {
+    font-size: 0.85rem;
+    color: #b0b0b0;
+    padding: 14px 10px 22px 10px;
+    text-align: center;
+    opacity: 0;
+    animation: about-fade 420ms ease-out forwards;
+    animation-delay: 260ms;
+}
+
+/* ====== ANIMAÇÕES ====== */
+@keyframes about-fade {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes about-fade-up {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ====== DESKTOP / TELAS MAIORES ====== */
+@media (min-width: 768px) {
+    .about {
+        background-attachment: fixed;
+    }
+
+    .about__card {
+        margin: 40px auto 24px auto;
+        padding: 28px 28px;
+        border-radius: 32px;
+    }
+
+    .about__title {
+        font-size: 2.4rem;
+    }
+    .about__h2 {
+        font-size: 1.35rem;
+    }
+    .about__p {
+        font-size: 1.05rem;
+    }
+    .about__divider {
+        width: 48%;
+    }
+}
+
+/* ====== ACESSIBILIDADE: REDUÇÃO DE MOVIMENTO ====== */
+@media (prefers-reduced-motion: reduce) {
+    .about__card,
+    .about__title,
+    .about__divider,
+    .about__h2,
+    .about__p,
+    .about__footer {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* ====== VARIAÇÃO: BACKGROUND VERDE (opcional) ====== */
+/* Troque a URL se quiser usar a versão green */
+.about.--green {
+    background-image: url("/TECH_DOOR_GREEN.webp");
+}

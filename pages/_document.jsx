@@ -2,10 +2,11 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
     return (
-        <Html lang="en">
+        <Html lang="pt-BR">
             <Head>
+                <meta httpEquiv="Content-Language" content="pt-BR" />
+                <meta name="language" content="Portuguese" />
                 <link rel="icon" href="/favicon.ico" />
-                <title>KSM Tech</title>
             </Head>
             <body>
                 <Main />

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Navbar from "../components/navbar";
 
 export default function Home() {
     const [dots, setDots] = useState("");
@@ -12,69 +13,33 @@ export default function Home() {
 
     return (
         <>
-            <div
-                style={{
-                    backgroundImage: "url('/TECH_DOOR.webp')",
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    color: "#fff",
-                    fontFamily: "Arial, sans-serif",
-                    textAlign: "center",
-                    minHeight: "100vh",
-                    paddingTop: "80px",
-                }}
-            >
-                <div
-                    style={{
-                        width: "80%",
-                        margin: "0 auto 20px auto",
-                        backdropFilter: "blur(5px)",
-                        borderRadius: "50px",
-                        padding: "10px",
-                    }}
-                >
-                    <div style={{ marginBottom: "40px" }}>
+            <div className="hero">
+                <Navbar />
+                <div className="hero__card">
+                    <div className="hero__logoWrap">
                         <img
                             src="/LOGO_2.webp"
                             alt="KSM Tech Logo"
                             className="logo"
-                            style={{
-                                width: "180px",
-                                height: "auto",
-                            }}
                         />
                     </div>
 
-                    <h1 style={{ fontSize: "2.5rem", color: "#00ff66" }}>
-                        KSM TECH
-                    </h1>
+                    <h1 className="hero__title">KSM TECH</h1>
 
-                    <p style={{ color: "#ccc", fontSize: "1.2rem" }}>
+                    <p className="hero__subtitle">
                         Your gateway to tech solutions.
                     </p>
 
-                    <hr
-                        style={{
-                            width: "60%",
-                            margin: "40px auto",
-                            border: "none",
-                            borderTop: "2px solid #00ff66",
-                        }}
-                    />
+                    <hr className="hero__divider" />
 
-                    <h2 style={{ color: "#aaa" }}>In construction{dots}</h2>
+                    <h2 className="hero__status">In construction{dots}</h2>
+
+                    <a className="hero__link" href="/about">
+                        Sobre Nós
+                    </a>
                 </div>
-                <footer
-                    style={{
-                        position: "absolute",
-                        bottom: "20px",
-                        width: "100%",
-                        textAlign: "center",
-                        color: "#444",
-                        fontSize: "0.9rem",
-                    }}
-                >
+
+                <footer className="hero__footer">
                     © 2025 KSM Tech. All rights reserved.
                 </footer>
             </div>

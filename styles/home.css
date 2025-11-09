@@ -1,0 +1,85 @@
+:root {
+    --fg: #fff;
+    --fg-muted: #ccc;
+    --fg-soft: #aaa;
+    --accent: #00ff66;
+}
+
+.hero {
+    background-image: url("/TECH_DOOR_GREEN.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: var(--fg);
+    font-family: Orbitron, Arial, sans-serif;
+    text-align: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* card central */
+.hero__card {
+    width: 80%;
+    margin: 0 auto 20px auto;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 50px;
+    padding: 10px;
+}
+
+/* logo */
+.hero__logoWrap {
+    margin-bottom: 40px;
+}
+.logo {
+    width: 180px;
+    height: auto;
+}
+
+/* títulos e textos */
+.hero__title {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+}
+
+.hero__subtitle {
+    color: var(--fg-muted);
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* divisor */
+.hero__divider {
+    width: 60%;
+    margin: 40px auto;
+    border: none;
+    border-top: 2px solid var(--accent);
+}
+
+/* status e link */
+.hero__status {
+    color: var(--fg-soft);
+    margin: 0 0 12px 0;
+}
+.hero__link {
+    color: var(--fg);
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    padding: 8px 14px;
+    border-radius: 999px;
+}
+.hero__link:hover {
+    color: var(--accent);
+}
+
+/* footer fixo no fundo da seção */
+.hero__footer {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #444;
+    font-size: 0.9rem;
+}
