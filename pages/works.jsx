@@ -1,5 +1,6 @@
 // pages/servicos.jsx
 import Navbar from "../components/navbar";
+import Footer from "../components/footer.jsx";
 import services from "../data/services.json";
 
 export default function Servicos() {
@@ -39,7 +40,7 @@ export default function Servicos() {
                     })}
                 </section>
             </main>
-            <footer className="about__footer">© 2025 KSM Tech</footer>
+            <Footer />
         </div>
     );
 }

@@ -1,4 +1,5 @@
 import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 
 export default function Sobre() {
     return (
@@ -36,9 +37,7 @@ export default function Sobre() {
                 </section>
             </main>
 
-            <footer className="about__footer">
-                © 2025 KSM Tech. All rights reserved.
-            </footer>
+            <Footer />
         </div>
     );
 }

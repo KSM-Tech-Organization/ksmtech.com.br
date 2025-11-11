@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { useRouter } from "next/router";
 import services from "../data/services.json";
 import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 
 export default function Contato() {
     const router = useRouter();
@@ -194,7 +195,7 @@ export default function Contato() {
                 </form>
             </main>
 
-            <footer className="contact__footer">© 2025 KSM Tech</footer>
+            <Footer />
         </div>
     );
 }

@@ -10,7 +10,8 @@
     padding: 0 12px;
     background: var(--bg);
     color: var(--fg);
-    border-bottom: 1px solid #111;
+    border-bottom: 1px solid lime;
+    font-family: Orbitron, Arial, sans-serif;
 }
 
 /* brand */

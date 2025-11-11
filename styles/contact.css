@@ -7,6 +7,7 @@
     color: var(--fg);
     display: grid;
     grid-template-rows: auto 1fr auto;
+    text-align: center;
 }
 
 /* cartão central */
@@ -34,6 +35,7 @@
     text-align: center;
     opacity: 0;
     animation: fade 340ms ease-out forwards;
+    font-family: Orbitron, Arial, sans-serif;
 }
 
 .contact__subtitle {

@@ -1,9 +1,10 @@
 // pages/index.jsx
 import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 import services from "../data/services.json";
 
 export default function Home() {
-    const featured = services.slice(0, 4);
+    const featured = services.slice(0, 3);
 
     return (
         <div className="hero">
@@ -46,9 +47,7 @@ export default function Home() {
                 })}
             </section>
 
-            <footer className="hero__footer">
-                © 2025 KSM Tech. All rights reserved.
-            </footer>
+            <Footer />
         </div>
     );
 }

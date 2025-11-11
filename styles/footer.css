@@ -1,0 +1,16 @@
+/* rodapé */
+.footer {
+    bottom: 0;
+    position: static;
+    font-size: 0.85rem;
+    color: #b0b0b0;
+    padding: 14px 10px 22px 10px;
+    text-align: center;
+    opacity: 0;
+    animation: about-fade 420ms ease-out forwards;
+    animation-delay: 260ms;
+    background: #000;
+    border-top: 1px solid lime;
+    font-family: Orbitron, Arial, sans-serif;
+    width: 100%;
+}
