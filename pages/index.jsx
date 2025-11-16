@@ -1,5 +1,4 @@
 // pages/index.jsx
-import Navbar from "../components/navbar";
 import Footer from "../components/footer.jsx";
 import ServicesGrid from "../components/ServicesGrid";
 import Link from "next/link";
@@ -7,7 +6,6 @@ import Link from "next/link";
 export default function Home() {
     return (
         <div className="page">
-            <Navbar />
 
             <main className="page__wrap">
                 {/* HERO SECTION */}

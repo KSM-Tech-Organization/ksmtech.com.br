@@ -1,5 +1,5 @@
 .hero {
-    background-image: url("/TECH_DOOR_GREEN.webp");
+    background-image: url("/TECH_MINIMAL_DARK.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -11,6 +11,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* TEMA LIGHT: Imagem minimalista clara */
+html[data-theme="light"] .hero {
+    background-image: url("/TECH_MINIMAL_LIGHT.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* overlay para tema light (mantém se houver imagem) */
+html[data-theme="light"][style*="background-image"] .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 /* card central */
@@ -135,6 +155,11 @@
     );
 }
 
+/* TEMA LIGHT: Inversão elegante de cores */
+html[data-theme="light"] .value-prop {
+    background: linear-gradient(135deg, #f0f7f4 0%, #e8f5e9 100%);
+}
+
 .value-prop__container {
     max-width: 1200px;
     margin: 0 auto;
@@ -170,6 +195,19 @@
     transform: translateY(-5px);
 }
 
+/* TEMA LIGHT: Cards elegantes com sombra sutil */
+html[data-theme="light"] .value-prop__item {
+    background: rgba(0, 163, 71, 0.03);
+    border: 1px solid rgba(0, 163, 71, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+html[data-theme="light"] .value-prop__item:hover {
+    background: rgba(0, 163, 71, 0.08);
+    border-color: var(--accent);
+    box-shadow: 0 8px 24px rgba(0, 163, 71, 0.15);
+}
+
 .value-prop__icon {
     font-size: 3rem;
     margin-bottom: 20px;
@@ -192,6 +230,11 @@
 .use-cases {
     padding: 80px 20px;
     background: rgba(0, 0, 0, 0.3);
+}
+
+/* TEMA LIGHT: Background sutil e clean */
+html[data-theme="light"] .use-cases {
+    background: linear-gradient(135deg, #f5f8f7 0%, #eef7f4 100%);
 }
 
 .use-cases__container {
@@ -227,6 +270,19 @@
         transparent 100%
     );
     box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
+}
+
+/* TEMA LIGHT: Cards com design mais clean */
+html[data-theme="light"] .use-case__card {
+    background: linear-gradient(135deg, rgba(0, 163, 71, 0.06) 0%, transparent 100%);
+    border: 2px solid var(--accent);
+    box-shadow: 0 4px 12px rgba(0, 163, 71, 0.1);
+}
+
+html[data-theme="light"] .use-case__card:hover {
+    transform: translateX(10px);
+    background: linear-gradient(135deg, rgba(0, 163, 71, 0.12) 0%, transparent 100%);
+    box-shadow: 0 16px 32px rgba(0, 163, 71, 0.2);
 }
 
 .use-case__card h3 {
@@ -315,6 +371,11 @@
     text-align: center;
 }
 
+/* TEMA LIGHT: Fundo sutil e elegante */
+html[data-theme="light"] .trust-section {
+    background: linear-gradient(135deg, #f0f7f4 0%, #e8f5e9 100%);
+}
+
 .trust-section__container {
     max-width: 900px;
     margin: 0 auto;
@@ -339,6 +400,13 @@
     background: rgba(0, 255, 136, 0.05);
     border-radius: 12px;
     border: 1px solid rgba(0, 255, 136, 0.1);
+}
+
+/* TEMA LIGHT: Stats com design moderno */
+html[data-theme="light"] .stat {
+    background: rgba(0, 163, 71, 0.05);
+    border: 1px solid rgba(0, 163, 71, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 163, 71, 0.08);
 }
 
 .stat__number {
@@ -402,6 +470,19 @@
 .faq-item:hover {
     background: rgba(0, 255, 136, 0.08);
     border-color: var(--accent);
+}
+
+/* TEMA LIGHT: FAQ items com estilo clean */
+html[data-theme="light"] .faq-item {
+    background: rgba(0, 163, 71, 0.02);
+    border: 1px solid rgba(0, 163, 71, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+html[data-theme="light"] .faq-item:hover {
+    background: rgba(0, 163, 71, 0.08);
+    border-color: var(--accent);
+    box-shadow: 0 4px 12px rgba(0, 163, 71, 0.12);
 }
 
 .faq-item summary {

@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
 import { useRouter } from "next/router";
 import services from "../data/services.json";
-import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 
 export default function Contato() {
@@ -67,7 +66,6 @@ export default function Contato() {
 
     return (
         <div className="contact">
-            <Navbar />
             <main className="contact__wrap">
                 <h1 className="contact__title">Contato</h1>
                 <p className="contact__subtitle">

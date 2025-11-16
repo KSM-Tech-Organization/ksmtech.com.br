@@ -26,6 +26,8 @@ export default function ServicesGrid({
         return base;
     });
 
+    const [imageLoaded, setImageLoaded] = useState({});
+
     // 2) Depois que montar no client, se random=true, embaralha
     useEffect(() => {
         if (!random) return;
@@ -34,6 +36,10 @@ export default function ServicesGrid({
         if (limit) base = base.slice(0, limit);
         setItems(base);
     }, [random, limit]);
+
+    const handleImageLoad = (slug) => {
+        setImageLoaded((prev) => ({ ...prev, [slug]: true }));
+    };
 
     return (
         <section className={className}>
@@ -51,9 +57,22 @@ export default function ServicesGrid({
                             <div
                                 className="card__image"
                                 style={{
-                                    backgroundImage: `url(/services/${s.slug}.webp)`,
+                                    backgroundImage: imageLoaded[s.slug]
+                                        ? `url(/services/${s.slug}.webp)`
+                                        : "none",
+                                    backgroundColor: "rgba(0, 255, 136, 0.08)",
                                 }}
+                                onLoad={() => handleImageLoad(s.slug)}
                             >
+                                {!imageLoaded[s.slug] && (
+                                    <img
+                                        src={`/services/${s.slug}.webp`}
+                                        alt={s.title}
+                                        style={{ display: "none" }}
+                                        onLoad={() => handleImageLoad(s.slug)}
+                                        loading="lazy"
+                                    />
+                                )}
                                 <div className="card__image-overlay"></div>
                             </div>
                         </div>
@@ -70,7 +89,12 @@ export default function ServicesGrid({
                                 </ul>
                             ) : null}
 
-                            <a className="card__cta" href={`/contact?${q}`}>
+                            <a
+                                className="card__cta"
+                                href={`/contact?${q}`}
+                                aria-label={`Solicitar ${s.title}`}
+                                title={`Mais informações sobre ${s.title}`}
+                            >
                                 {s.cta}
                             </a>
                         </div>

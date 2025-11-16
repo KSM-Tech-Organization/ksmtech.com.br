@@ -1,6 +1,6 @@
 .page {
     min-height: 100vh;
-    background-image: url("/TECH_DOOR_GREEN.webp");
+    background-image: url("/TECH_MINIMAL_DARK.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -9,6 +9,14 @@
     display: grid;
     text-align: center;
     grid-template-rows: auto 1fr auto;
+}
+
+/* TEMA LIGHT: Imagem minimalista clara */
+html[data-theme="light"] .page {
+    background-image: url("/TECH_MINIMAL_LIGHT.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .page__wrap {
@@ -54,6 +62,12 @@
     animation: fade-up 420ms ease-out forwards;
 }
 
+/* TEMA LIGHT: Cards com shadow moderno */
+html[data-theme="light"] .card {
+    backdrop-filter: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
 .card__title {
     margin: 0 0 6px 0;
     font-size: 1.1rem;
@@ -81,6 +95,12 @@
 
 .card__cta:hover {
     color: var(--fg);
+}
+
+/* TEMA LIGHT: CTA com cor apropriada */
+html[data-theme="light"] .card__cta {
+    color: #fff;
+    background: var(--accent);
 }
 .card__list {
     margin: 8px 0 10px 18px;

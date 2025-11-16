@@ -14,3 +14,10 @@
     font-family: Orbitron, Arial, sans-serif;
     width: 100%;
 }
+
+/* TEMA LIGHT: Footer com cores do tema */
+html[data-theme="light"] .footer {
+    background: var(--bg);
+    color: var(--fg-muted);
+    border-top: 1px solid rgba(0, 163, 71, 0.15);
+}

@@ -1,7 +1,7 @@
 /* ====== LAYOUT GERAL (MOBILE FIRST) ====== */
 .about {
     min-height: 100vh;
-    background-image: url("/TECH_DOOR.webp");
+    background-image: url("/TECH_MINIMAL_DARK.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -10,6 +10,14 @@
     display: grid;
     grid-template-rows: auto 1fr auto;
     text-align: center;
+}
+
+/* TEMA LIGHT: Imagem minimalista clara */
+html[data-theme="light"] .about {
+    background-image: url("/TECH_MINIMAL_LIGHT.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 /* card central */
@@ -28,6 +36,14 @@
     transform: translateY(14px);
     animation: about-fade-up 420ms ease-out forwards;
     animation-delay: 120ms;
+}
+
+/* TEMA LIGHT: Card com sombra moderna */
+html[data-theme="light"] .about__card {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 163, 71, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    backdrop-filter: none;
 }
 
 /* títulos e textos */

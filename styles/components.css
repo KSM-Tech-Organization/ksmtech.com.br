@@ -18,6 +18,28 @@
     }
 }
 
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes card-entrance {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
 .card {
     background: var(--card);
     border: 1px solid var(--border);
@@ -27,9 +49,35 @@
     -webkit-backdrop-filter: blur(var(--blur-1));
     opacity: 0;
     transform: translateY(12px);
+    animation: fade-up 420ms var(--ease-2) forwards;
 }
+
 .card[data-animate] {
     animation: fade-up 420ms var(--ease-2) forwards;
+}
+
+.card:nth-child(1) {
+    animation-delay: 0ms;
+}
+
+.card:nth-child(2) {
+    animation-delay: 60ms;
+}
+
+.card:nth-child(3) {
+    animation-delay: 120ms;
+}
+
+.card:nth-child(4) {
+    animation-delay: 180ms;
+}
+
+.card:nth-child(5) {
+    animation-delay: 240ms;
+}
+
+.card:nth-child(6) {
+    animation-delay: 300ms;
 }
 
 /* SERVICE CARD ENHANCEMENT */
@@ -50,6 +98,19 @@
     box-shadow: 0 20px 40px rgba(0, 255, 136, 0.15);
 }
 
+/* TEMA LIGHT: Cards de serviço elegantes */
+html[data-theme="light"] .card--service {
+    border: 1px solid rgba(0, 163, 71, 0.12);
+    background: rgba(0, 163, 71, 0.03);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+html[data-theme="light"] .card--service:hover {
+    border-color: var(--accent);
+    background: rgba(0, 163, 71, 0.08);
+    box-shadow: 0 16px 32px rgba(0, 163, 71, 0.18);
+}
+
 .card__image-wrapper {
     width: 100%;
     height: 220px;
@@ -62,6 +123,11 @@
     );
 }
 
+/* TEMA LIGHT: Wrapper mais sutil */
+html[data-theme="light"] .card__image-wrapper {
+    background: linear-gradient(135deg, rgba(0, 163, 71, 0.08) 0%, transparent 100%);
+}
+
 .card__image {
     width: 100%;
     height: 100%;
@@ -70,6 +136,11 @@
     background-color: rgba(0, 255, 136, 0.08);
     position: relative;
     transition: transform 0.3s ease;
+}
+
+/* TEMA LIGHT: Background mais sutil */
+html[data-theme="light"] .card__image {
+    background-color: rgba(0, 163, 71, 0.06);
 }
 
 .card--service:hover .card__image {
@@ -87,6 +158,11 @@
         rgba(0, 255, 136, 0.15) 0%,
         rgba(0, 0, 0, 0.3) 100%
     );
+}
+
+/* TEMA LIGHT: Overlay mais sutil */
+html[data-theme="light"] .card__image-overlay {
+    background: linear-gradient(135deg, rgba(0, 163, 71, 0.1) 0%, rgba(0, 0, 0, 0.15) 100%);
 }
 
 .card__content {
@@ -147,6 +223,8 @@
     font-size: 0.95rem;
     transition: all 0.3s ease;
     border: 2px solid var(--accent);
+    outline: 2px solid transparent;
+    outline-offset: 2px;
 }
 
 .card__cta:hover {
@@ -155,7 +233,21 @@
     transform: translateX(4px);
 }
 
+.card__cta:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Estilos padronizados para botões */
+
 .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: var(--r-md);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
     background: var(--accent);
     color: #001a0b;
     border: 0;
@@ -166,13 +258,49 @@
     transition:
         transform var(--ease-1),
         filter var(--ease-1);
+    outline: 2px solid transparent;
+    outline-offset: 2px;
 }
+
 .btn:hover {
     transform: translateY(-1px);
 }
+
+.btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
 .btn:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+    background-color: grey;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.btn--primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn--secondary {
+    background-color: var(--secondary);
+    color: white;
+}
+
+.btn--outline {
+    background-color: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn--outline:focus-visible {
+    outline: 2px solid var(--primary);
+}
+
+.btn:hover {
+    opacity: 0.8;
 }
 
 .alert {
@@ -187,4 +315,17 @@
 .alert--error {
     background: rgba(255, 0, 0, 0.12);
     border: 1px solid rgba(255, 0, 0, 0.35);
+}
+
+/* TEMA LIGHT: Alerts com cores mais suaves */
+html[data-theme="light"] .alert--ok {
+    background: rgba(0, 163, 71, 0.08);
+    border: 1px solid rgba(0, 163, 71, 0.25);
+    color: #055a47;
+}
+
+html[data-theme="light"] .alert--error {
+    background: rgba(244, 67, 54, 0.08);
+    border: 1px solid rgba(244, 67, 54, 0.25);
+    color: #c62a2a;
 }

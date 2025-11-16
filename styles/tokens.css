@@ -23,9 +23,23 @@
     --ease-2: 360ms ease-out;
 }
 
+/* light theme - Verde + Prateado + Branco */
+html[data-theme="light"] {
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --fg-muted: #606060;
+    --fg-soft: #909090;
+    --accent: #00d966;
+    --shadow: #00000008;
+    --card: rgba(255, 255, 255, 0.98);
+    --border: rgba(0, 217, 102, 0.15);
+    --card-bg: rgba(255, 255, 255, 0.95);
+}
+
 /* dark base */
 html,
 body {
     background: var(--bg);
     color: var(--fg);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }

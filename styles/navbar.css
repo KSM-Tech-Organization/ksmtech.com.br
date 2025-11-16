@@ -10,8 +10,14 @@
     padding: 0 12px;
     background: var(--bg);
     color: var(--fg);
-    border-bottom: 1px solid lime;
+    border-bottom: 1px solid rgba(0, 255, 102, 0.3);
     font-family: Orbitron, Arial, sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+/* TEMA LIGHT: Border mais sutil */
+html[data-theme="light"] .navbar {
+    border-bottom: 1px solid rgba(0, 163, 71, 0.15);
 }
 
 /* brand */
@@ -27,6 +33,37 @@
     object-fit: contain;
 }
 
+/* actions container */
+.navbar__actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* theme toggle */
+.navbar__theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    background: transparent;
+    border: 0;
+    color: var(--fg);
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+    border-radius: 6px;
+}
+
+.navbar__theme-toggle:hover {
+    color: var(--accent);
+    transform: rotate(20deg);
+}
+
+.navbar__theme-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
 /* hamburger */
 .navbar__toggle {
     display: inline-flex;
@@ -36,7 +73,7 @@
     background: transparent;
     border: 0;
 }
-.navbar__toggle:focus {
+.navbar__toggle:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
 }
@@ -45,6 +82,7 @@
     height: 2px;
     background: var(--fg);
     display: block;
+    transition: all 0.3s ease;
 }
 
 /* drawer (mobile) */
@@ -60,6 +98,11 @@
     transform: translateX(100%);
     transition: transform 200ms ease-in-out;
     padding: 72px 20px 20px 20px;
+}
+
+/* TEMA LIGHT: Border mais sutil */
+html[data-theme="light"] .navbar__drawer {
+    border-left: 1px solid rgba(0, 163, 71, 0.1);
 }
 .navbar__drawer.is-open {
     transform: translateX(0);
@@ -77,9 +120,14 @@
     color: var(--fg);
     text-decoration: none;
     font-size: 16px;
+    transition: color 0.3s ease;
 }
 .navbar__list a:hover {
     color: var(--accent);
+}
+.navbar__list a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
 }
 
 /* backdrop when drawer open */
@@ -89,6 +137,11 @@
     inset: 0;
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(2px);
+}
+
+/* TEMA LIGHT: Backdrop mais sutil */
+html[data-theme="light"] .navbar__backdrop {
+    background: rgba(0, 0, 0, 0.4);
 }
 
 /* desktop layout */

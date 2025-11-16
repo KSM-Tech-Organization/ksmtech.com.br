@@ -1,10 +1,8 @@
-import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 
 export default function Sobre() {
     return (
         <div className="about">
-            <Navbar />
             <main className="about__card">
                 <h1 className="about__title">Sobre Nós</h1>
                 <hr className="about__divider" />

@@ -3,8 +3,8 @@ html,
 body {
     margin: 0;
     padding: 0;
-    background-color: #000;
-    color: #fff;
+    background-color: var(--bg);
+    color: var(--fg);
     font-family: var(--font-orbitron), Arial, sans-serif;
 }
 
@@ -19,5 +19,5 @@ body {
 }
 .logo:hover {
     transform: scale(1.05);
-    filter: drop-shadow(0 0 10px #00ff66);
+    filter: drop-shadow(0 0 10px var(--accent));
 }
