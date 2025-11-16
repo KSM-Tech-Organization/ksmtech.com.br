@@ -72,12 +72,30 @@ html[data-theme="light"] .navbar {
     outline-offset: 2px;
 }
 .theme-btn.is-active {
-    background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.02));
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
     color: var(--accent);
+    border: 1px solid rgba(0, 255, 102, 0.22);
+    box-shadow: 0 8px 28px rgba(0, 255, 102, 0.08), 0 0 18px rgba(0, 255, 102, 0.06) inset;
 }
 html[data-theme="light"] .theme-btn.is-active {
     background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(245,247,249,0.95));
     color: var(--accent);
+    border: 1px solid rgba(0, 217, 102, 0.18);
+    box-shadow: 0 8px 28px rgba(0, 217, 102, 0.06), 0 0 12px rgba(0, 217, 102, 0.03) inset;
+}
+
+/* Make the theme switch look like a small popup */
+.theme-switch {
+    padding: 6px;
+    border-radius: 12px;
+    background: rgba(0,0,0,0.12);
+    border: 1px solid rgba(0, 255, 102, 0.08);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+}
+html[data-theme="light"] .theme-switch {
+    background: rgba(255,255,255,0.85);
+    border: 1px solid rgba(0, 217, 102, 0.06);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
 }
 
 /* hamburger */
