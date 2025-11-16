@@ -55,24 +55,20 @@ export default function ServicesGrid({
                     <article key={s.slug} className="card card--service">
                         <div className="card__image-wrapper">
                             <div
-                                className="card__image"
-                                style={{
-                                    backgroundImage: imageLoaded[s.slug]
-                                        ? `url(/services/${s.slug}.webp)`
-                                        : "none",
-                                    backgroundColor: "rgba(0, 255, 136, 0.08)",
-                                }}
-                                onLoad={() => handleImageLoad(s.slug)}
-                            >
-                                {!imageLoaded[s.slug] && (
+                                    className="card__image"
+                                    style={{
+                                        backgroundImage: `url(/services/${s.slug}.webp)`,
+                                        backgroundColor: "rgba(0, 255, 136, 0.08)",
+                                    }}
+                                >
+                                    {/* Hidden img used to detect load; set to eager to ensure fetch */}
                                     <img
                                         src={`/services/${s.slug}.webp`}
                                         alt={s.title}
                                         style={{ display: "none" }}
                                         onLoad={() => handleImageLoad(s.slug)}
-                                        loading="lazy"
+                                        loading="eager"
                                     />
-                                )}
                                 <div className="card__image-overlay"></div>
                             </div>
                         </div>
