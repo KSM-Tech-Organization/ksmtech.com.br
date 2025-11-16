@@ -46,21 +46,34 @@ export default function ServicesGrid({
                 }).toString();
 
                 return (
-                    <article key={s.slug} className="card">
-                        <h3 className="card__title">{s.title}</h3>
-                        <p className="card__p">{s.blurb}</p>
+                    <article key={s.slug} className="card card--service">
+                        <div className="card__image-wrapper">
+                            <div
+                                className="card__image"
+                                style={{
+                                    backgroundImage: `url(/services/${s.slug}.webp)`,
+                                }}
+                            >
+                                <div className="card__image-overlay"></div>
+                            </div>
+                        </div>
 
-                        {s.features?.length ? (
-                            <ul className="card__list">
-                                {s.features.map((f) => (
-                                    <li key={f}>{f}</li>
-                                ))}
-                            </ul>
-                        ) : null}
+                        <div className="card__content">
+                            <h3 className="card__title">{s.title}</h3>
+                            <p className="card__p">{s.blurb}</p>
 
-                        <a className="card__cta" href={`/contact?${q}`}>
-                            {s.cta}
-                        </a>
+                            {s.features?.length ? (
+                                <ul className="card__list">
+                                    {s.features.map((f) => (
+                                        <li key={f}>{f}</li>
+                                    ))}
+                                </ul>
+                            ) : null}
+
+                            <a className="card__cta" href={`/contact?${q}`}>
+                                {s.cta}
+                            </a>
+                        </div>
                     </article>
                 );
             })}
