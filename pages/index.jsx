@@ -1,7 +1,7 @@
 // pages/index.jsx
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
-import services from "../data/services.json";
+import ServicesGrid from "../components/ServicesGrid";
 
 export default function Home() {
     const featured = services.slice(0, 3);
@@ -9,6 +9,7 @@ export default function Home() {
     return (
         <div className="hero">
             <Navbar />
+
             <div className="hero__card">
                 <img src="/LOGO_2.webp" alt="KSM Tech Logo" className="logo" />
                 <h1 className="hero__title">
@@ -20,32 +21,22 @@ export default function Home() {
                 <hr className="hero__divider" />
             </div>
 
-            <section className="grid">
-                {featured.map((s) => {
-                    const q = new URLSearchParams({
-                        origin: "home",
-                        service: s.slug,
-                        subject: s.subject,
-                        message: s.message,
-                    }).toString();
-                    return (
-                        <article key={s.slug} className="card">
-                            <h3 className="card__title">{s.title}</h3>
-                            <p className="card__p">{s.blurb}</p>
-                            {s.features?.length ? (
-                                <ul className="card__list">
-                                    {s.features.map((f) => (
-                                        <li key={f}>{f}</li>
-                                    ))}
-                                </ul>
-                            ) : null}
-                            <a className="card__cta" href={`/contact?${q}`}>
-                                {s.cta}
-                            </a>
-                        </article>
-                    );
-                })}
-            </section>
+            <main className="page__wrap">
+                <section className="home__services">
+                    <h2 className="page__title">Nossos serviços</h2>
+                    <p className="page__subtitle">
+                        Uma prévia do que podemos fazer por você
+                    </p>
+
+                    <ServicesGrid random limit={3} origin="home" />
+
+                    <div className="home__services__see-all">
+                        <Link href="/works" className="card__cta">
+                            Ver todos os serviços
+                        </Link>
+                    </div>
+                </section>
+            </main>
 
             <Footer />
         </div>
