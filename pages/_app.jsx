@@ -27,17 +27,40 @@ const orbitron = Orbitron({
 
 export default function App({ Component, pageProps }) {
     const router = useRouter();
-    const [theme, setTheme] = useState("dark");
+    const [themeMode, setThemeMode] = useState("auto"); // 'dark' | 'light' | 'auto'
     const [mounted, setMounted] = useState(false);
 
-    // Inicializar tema na primeira renderização do cliente
+    // Inicializar modo de tema na primeira renderização do cliente
     useEffect(() => {
-        if (typeof window !== "undefined") {
-            const savedTheme = localStorage.getItem("theme") || "dark";
-            setTheme(savedTheme);
-            document.documentElement.setAttribute("data-theme", savedTheme);
-            setMounted(true);
-        }
+        if (typeof window === "undefined") return;
+
+        // Migration: read new key 'themeMode' or fallback to old 'theme'
+        const saved = localStorage.getItem("themeMode") || localStorage.getItem("theme");
+        const initial = saved === "dark" || saved === "light" || saved === "auto" ? saved : "auto";
+        setThemeMode(initial);
+
+        const apply = (mode) => {
+            const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+            const applied = mode === "auto" ? (prefersDark ? "dark" : "light") : mode;
+            document.documentElement.setAttribute("data-theme", applied);
+        };
+
+        apply(initial);
+
+        // listen to system changes when in auto
+        const m = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)");
+        const onSys = () => {
+            if ((localStorage.getItem("themeMode") || initial) === "auto") apply("auto");
+        };
+        if (m && m.addEventListener) m.addEventListener("change", onSys);
+        else if (m && m.addListener) m.addListener(onSys);
+
+        setMounted(true);
+
+        return () => {
+            if (m && m.removeEventListener) m.removeEventListener("change", onSys);
+            else if (m && m.removeListener) m.removeListener(onSys);
+        };
     }, []);
 
     // Analytics
@@ -61,13 +84,16 @@ export default function App({ Component, pageProps }) {
             router.events.off("routeChangeComplete", handleRouteChange);
     }, [router.events]);
 
-    const toggleTheme = () => {
-        if (typeof window !== "undefined") {
-            const newTheme = theme === "dark" ? "light" : "dark";
-            setTheme(newTheme);
-            localStorage.setItem("theme", newTheme);
-            document.documentElement.setAttribute("data-theme", newTheme);
-        }
+    // Set theme mode: 'dark' | 'light' | 'auto'
+    const setMode = (mode) => {
+        if (typeof window === "undefined") return;
+        if (!["dark", "light", "auto"].includes(mode)) return;
+        setThemeMode(mode);
+        localStorage.setItem("themeMode", mode);
+
+        const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const applied = mode === "auto" ? (prefersDark ? "dark" : "light") : mode;
+        document.documentElement.setAttribute("data-theme", applied);
     };
 
     // Evita flash ao montar se tema for light
@@ -86,7 +112,7 @@ export default function App({ Component, pageProps }) {
             <Head>
                 <title>KSM Tech</title>
             </Head>
-            <Navbar toggleTheme={toggleTheme} theme={theme} />
+            <Navbar setThemeMode={setMode} themeMode={themeMode} />
             <Component {...pageProps} />
             <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
         </div>

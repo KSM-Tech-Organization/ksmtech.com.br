@@ -41,27 +41,43 @@ html[data-theme="light"] .navbar {
 }
 
 /* theme toggle */
-.navbar__theme-toggle {
+/* theme switch (three-state) */
+.theme-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    padding: 4px;
+    border-radius: 999px;
+}
+.theme-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 8px;
-    background: transparent;
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+    border-radius: 8px;
     border: 0;
+    background: transparent;
     color: var(--fg);
     cursor: pointer;
-    transition: color 0.3s ease, transform 0.2s ease;
-    border-radius: 6px;
+    transition: background-color 160ms ease, color 160ms ease, transform 120ms ease;
 }
-
-.navbar__theme-toggle:hover {
-    color: var(--accent);
-    transform: rotate(20deg);
+.theme-btn:hover {
+    transform: translateY(-2px);
 }
-
-.navbar__theme-toggle:focus-visible {
+.theme-btn:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
+}
+.theme-btn.is-active {
+    background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.02));
+    color: var(--accent);
+}
+html[data-theme="light"] .theme-btn.is-active {
+    background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(245,247,249,0.95));
+    color: var(--accent);
 }
 
 /* hamburger */
