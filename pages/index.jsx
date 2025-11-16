@@ -29,7 +29,7 @@ export default function Home() {
                         </p>
                         <div className="hero__ctas">
                             <Link
-                                href="/contact"
+                                href="/contact?origin=home&service=geral"
                                 className="hero__cta hero__cta--primary"
                             >
                                 Solicitar Orçamento
@@ -158,7 +158,7 @@ export default function Home() {
                                 </span>
                             </div>
                         </div>
-                        <Link href="/contact" className="cta__large">
+                        <Link href="/contact?origin=home&service=geral" className="cta__large">
                             Agendar Consultoria Gratuita
                         </Link>
                     </div>
@@ -197,7 +197,7 @@ export default function Home() {
                                 </p>
                             </details>
                         </div>
-                        <Link href="/contact" className="faq-cta">
+                        <Link href="/contact?origin=home&service=geral" className="faq-cta">
                             Mais dúvidas? Fale conosco
                         </Link>
                     </div>

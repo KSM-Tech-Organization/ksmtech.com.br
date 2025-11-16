@@ -46,21 +46,7 @@ export default function App({ Component, pageProps }) {
         };
 
         apply(initial);
-
-        // listen to system changes when in auto
-        const m = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)");
-        const onSys = () => {
-            if ((localStorage.getItem("themeMode") || initial) === "auto") apply("auto");
-        };
-        if (m && m.addEventListener) m.addEventListener("change", onSys);
-        else if (m && m.addListener) m.addListener(onSys);
-
         setMounted(true);
-
-        return () => {
-            if (m && m.removeEventListener) m.removeEventListener("change", onSys);
-            else if (m && m.removeListener) m.removeListener(onSys);
-        };
     }, []);
 
     // Analytics

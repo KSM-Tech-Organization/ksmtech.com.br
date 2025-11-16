@@ -212,13 +212,7 @@ html[data-theme="light"] .card__image-overlay {
 
 .card__list li {
     margin-bottom: 6px;
-}
-
-.card__list li:before {
-    content: "▹ ";
-    color: var(--accent);
-    font-weight: bold;
-    margin-right: 6px;
+    color: var(--fg-muted);
 }
 
 .card__cta {

@@ -5,7 +5,8 @@
     z-index: 50;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 12px;
     height: 56px;
     padding: 0 12px;
     background: var(--bg);
@@ -26,6 +27,7 @@ html[data-theme="light"] .navbar {
     align-items: center;
     gap: 8px;
     text-decoration: none;
+    flex-shrink: 0;
 }
 .navbar__logo {
     width: 32px;
@@ -33,11 +35,66 @@ html[data-theme="light"] .navbar {
     object-fit: contain;
 }
 
-/* actions container */
+/* hamburger toggle - always visible */
+.navbar__toggle {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+.navbar__toggle:hover {
+    opacity: 0.8;
+}
+.navbar__toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+.navbar__bar {
+    width: 22px;
+    height: 2px;
+    background: var(--fg);
+    display: block;
+    transition: all 0.3s ease;
+}
+
+/* menu (links) - hidden on mobile, visible on desktop, centered */
+.navbar__menu {
+    display: none;
+    flex: 1;
+    justify-content: center;
+    margin: 0 auto;
+}
+.navbar__menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 24px;
+}
+.navbar__menu-list a {
+    color: var(--fg);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+.navbar__menu-list a:hover {
+    color: var(--accent);
+}
+.navbar__menu-list a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+/* actions container (right side) */
 .navbar__actions {
     display: flex;
     align-items: center;
     gap: 8px;
+    margin-left: auto;
 }
 
 /* theme toggle */
@@ -128,10 +185,11 @@ html[data-theme="light"] .theme-switch {
     max-width: 320px;
     height: 100vh;
     background: var(--bg);
-    border-left: 1px solid #111;
+    border-left: 1px solid rgba(255,255,255,0.02);
     transform: translateX(100%);
     transition: transform 200ms ease-in-out;
     padding: 72px 20px 20px 20px;
+    z-index: 45;
 }
 
 /* TEMA LIGHT: Border mais sutil */
@@ -149,6 +207,74 @@ html[data-theme="light"] .navbar__drawer {
     display: flex;
     flex-direction: column;
     gap: 16px;
+}
+
+.navbar__drawer-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.navbar__drawer-list a {
+    color: var(--fg);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+.navbar__drawer-list a:hover {
+    color: var(--accent);
+}
+.navbar__drawer-list a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+.navbar__drawer-top {
+    padding: 18px 0 18px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.02);
+    margin-bottom: 14px;
+}
+
+.navbar__profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+.profile__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.02));
+    border: 1px solid rgba(255,255,255,0.04);
+}
+.profile__info {
+    flex: 1;
+    text-align: left;
+}
+.profile__name {
+    font-weight: 700;
+    color: var(--fg);
+}
+.profile__meta {
+    font-size: 12px;
+    color: var(--fg-muted);
+}
+.profile__action .btn {
+    padding: 8px 12px;
+    font-size: 13px;
+}
+
+.drawer__controls {
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+    align-items: center;
 }
 .navbar__list a {
     color: var(--fg);
@@ -173,6 +299,75 @@ html[data-theme="light"] .navbar__drawer {
     backdrop-filter: blur(2px);
 }
 
+/* Drawer inner layout */
+.navbar__drawer-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.navbar__profile {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 18px;
+}
+.navbar__avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.02));
+    border: 1px solid rgba(0,255,102,0.08);
+}
+.navbar__profile-info {
+    display: flex;
+    flex-direction: column;
+}
+.navbar__profile-name {
+    color: var(--fg);
+    font-weight: 500;
+}
+.navbar__profile-action {
+    margin-top: 6px;
+    font-size: 0.85rem;
+    padding: 4px 8px;
+    border: 1px solid rgba(0, 255, 102, 0.15);
+    background: transparent;
+    color: var(--fg);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.navbar__profile-action:hover {
+    color: var(--accent);
+    border-color: rgba(0, 255, 102, 0.22);
+    background: rgba(0, 255, 102, 0.03);
+}
+
+.navbar__drawer-footer {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+.drawer__theme-label {
+    display: none;
+}
+.navbar__divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,255,102,0.12), transparent);
+    margin: 12px 0;
+}
+.drawer__theme-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
 /* TEMA LIGHT: Backdrop mais sutil */
 html[data-theme="light"] .navbar__backdrop {
     background: rgba(0, 0, 0, 0.4);
@@ -185,22 +380,33 @@ html[data-theme="light"] .navbar__backdrop {
         padding: 0 16px;
     }
     .navbar__toggle {
-        display: none;
+        display: inline-flex;
+    }
+    .navbar__menu {
+        display: flex;
     }
     .navbar__drawer {
-        position: static;
-        transform: none;
-        height: auto;
-        width: auto;
-        max-width: none;
-        border-left: 0;
-        padding: 0;
+        width: 280px;
+        padding: 80px 16px 20px 16px;
     }
-    .navbar__list {
-        flex-direction: row;
-        gap: 20px;
+    .navbar__drawer-inner {
+        display: flex !important;
+        flex-direction: column;
+        gap: 12px;
+        height: auto;
+    }
+    .navbar__profile {
+        margin-bottom: 0;
+    }
+    .navbar__drawer-footer {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+    }
+    .navbar__drawer-list {
+        display: none;
     }
     .navbar__backdrop {
-        display: none;
+        display: block !important;
     }
 }

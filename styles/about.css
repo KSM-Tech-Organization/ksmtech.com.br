@@ -78,6 +78,53 @@ html[data-theme="light"] .about__card {
     animation-delay: 160ms;
 }
 .about__block:nth-child(4) {
+/* Hero específico da página about (alinha com estilo da home) */
+.about__hero {
+    padding: 56px 16px;
+    display: block;
+    background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.04) 100%);
+}
+.about__hero-inner {
+    width: min(94%, 1100px);
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+.about__hero-text {
+    flex: 1 1 420px;
+    text-align: left;
+}
+.about__title {
+    font-size: 2.2rem;
+    margin: 0 0 8px 0;
+    color: var(--accent);
+    font-family: Orbitron, Arial, sans-serif;
+}
+.about__subtitle {
+    color: var(--fg-muted);
+    margin: 0;
+    line-height: 1.45;
+}
+.about__hero-images {
+    flex: 0 0 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.about__img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 14px 40px rgba(2,6,23,0.45);
+    object-fit: cover;
+}
+/* Exibir a imagem correspondente ao tema */
+.about__img--light { display: none; }
+html[data-theme="light"] .about__img--light { display: block; }
+html[data-theme="light"] .about__img--dark { display: none; }
     animation-delay: 220ms;
 }
 .about__block:nth-child(5) {
